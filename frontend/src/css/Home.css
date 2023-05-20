@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+.Linehome {
+  width: 326px;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+.Text {
+  display: inline-block;
+  padding: 0px 10px;
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  width: 75px;
+  background-color: inherit;
+}
+.Icon {
+  display: flex;
+  justify-content: center;
+}
+.MakeIconmiddle {
+  width: 768px;
+  display: flex;
+  justify-content: flex-end;
+}
+.changePositionIcon {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+}
+.sortIcon {
+  border: none;
+  background: inherit;
+}
+.outerHome {
+  display: flex;
+  justify-content: center;
+}
+.innerHome {
+  width: 768px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.firstPost {
+  display: flex;
+  width: 768px;
+}
+.firstImg {
+  width: 400px;
+  height: 400px;
+}
+
+.firstDetail {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.categoryBorder {
+  display: flex;
+}
+.firstHead {
+  display: flex;
+}
+.head {
+  margin: 10px 0px;
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+}
+.firstText {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  justify-content: flex-start;
+}
+
+.firstBottom {
+  display: flex;
+  justify-content: space-between;
+}
+.category {
+  padding: 1px 4px 2px;
+  margin: 0px;
+  border: 1.5px solid #ff9494;
+  border-radius: 5px;
+  color: #ff9494;
+  font-size: 15px;
+}
+.firstBottom {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-top: 135px;
+}
+.seemore {
+  margin-left: 20px;
+  border: hidden;
+  color: white;
+  height: 32px;
+  width: 85px;
+  background-color: #ff9494;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+.seemoreButton {
+  display: flex;
+  align-items: flex-end;
+}
+.date {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.text {
+  text-align: left;
+}
+.write {
+  position: sticky;
+  left: 1200px;
+  bottom: 50px;
+  border: none;
+  background-color: inherit;
+}
+.writeBorder {
+  background-color: #ff9494;
+  border-radius: 30px;
+  padding: 10px 13px;
+}
+.postLine {
+  margin: 20px 0px;
+  display: flex;
+  border-bottom: solid 1px #d7d7d7;
+}
+.post {
+  display: flex;
+  flex-direction: row;
+}
+.secondImg {
+  width: 200px;
+  height: 200px;
+}
+.secondDetail {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.headAndCat {
+  display: flex;
+  align-items: center;
+}
+.otherHead {
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+  margin: 0px;
+}
+.otherCategory {
+  padding: 1px 4px 2px;
+  margin: 0px;
+  margin-left: 15px;
+  border: 1.5px solid #ff9494;
+  border-radius: 5px;
+  color: #ff9494;
+  font-size: 15px;
+}
+.update {
+  margin-left: 10px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.sortDate {
+  display: flex;
+  flex-direction: row;
+}
+.bottom {
+  margin-top: 11px;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  justify-content: space-between;
+}

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
+.LineProfile {
+  width: 335px;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+.TextProfile {
+  display: inline-block;
+  padding: 0px 10px;
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  width: 70px;
+  background-color: inherit;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.profileDetail {
+  display: flex;
+  justify-content: center;
+  width: 760px;
+  flex-direction: column;
+}
+.editPic {
+  border: none;
+  background-color: inherit;
+}
+.edit {
+  position: absolute;
+  top: 279px;
+  left: 682px;
+}
