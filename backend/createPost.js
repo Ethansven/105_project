@@ -1,12 +1,15 @@
+import BadWordsFilter from "bad-words";
 export default (req, res) => {
   const header = req.body.header;
   const content = req.body.content;
   const img_url = req.body.img_url;
   const category = req.body.category;
   const user_id = req.body.user_id;
+  const filter = new BadWordsFilter();
+  const clean_content = filter.clean(content);
   global.connection.query(
     "INSERT INTO post (header,content,img_url,post_category_id,user_id) VALUE (?,?,?,?,?) ",
-    [header, content, img_url, category, user_id],
+    [header, clean_content, img_url, category, user_id],
     async (err, rows) => {
       if (err) {
         return res.json({
