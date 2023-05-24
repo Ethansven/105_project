@@ -8,7 +8,13 @@ import Signup from "./pages/Signup";
 import { useState } from "react";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { BrowserRouter, Routes, Route, useNavigate, Router } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  Router,
+} from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,6 +27,7 @@ function App() {
   const navigate = useNavigate();
   const logout = async () => {
     const out = await Axios.get("/logout");
+    navigate("/");
   };
   const toprofile = () => {
     navigate("/profile");
@@ -66,7 +73,7 @@ function App() {
     setCurrent(name);
   };
   return (
-    <BrowserRouter>
+    
       <div className="App">
         <ToastContainer />
         <header className="Header">
@@ -84,24 +91,23 @@ function App() {
                   />
                   <span className="CircleInside">{renderMode()}</span>
                 </label>
-                <Router>
-                  <Button
-                    sx={{ marginLeft: "10px" }}
-                    color="info"
-                    variant="contained"
-                    onClick={() => toprofile()}
-                  >
-                    Profile
-                  </Button>
-                  <Button
-                    sx={{ marginLeft: "10px" }}
-                    color="error"
-                    variant="contained"
-                    onClick={() => logout()}
-                  >
-                    Logout
-                  </Button>
-                </Router>
+
+                <Button
+                  sx={{ marginLeft: "10px" }}
+                  color="info"
+                  variant="contained"
+                  onClick={() => toprofile()}
+                >
+                  Profile
+                </Button>
+                <Button
+                  sx={{ marginLeft: "10px" }}
+                  color="error"
+                  variant="contained"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </Button>
               </div>
             </div>
           </div>
@@ -134,7 +140,6 @@ function App() {
           <Route path="/write" element={<Create />} />
         </Routes>
       </div>
-    </BrowserRouter>
   );
 }
 
