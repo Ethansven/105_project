@@ -23,13 +23,15 @@ use -npm start
 
 - /login
 - /signup
-- /home
+- /home - you can delete post from here
 - /lifestyles
 - /foods
 - /others
 - /post
-- /profile
-
+- /profile - you can edit your profile picture here
+ > if you give a broken url the picture will not be load
+- /write 
+ > you must select category else it will automatically set as lifestyles and if you type rude word in content section it will not be shown later on.
 # Backend endpoint
 
 - /createPost
@@ -55,3 +57,6 @@ If you type rude word in the content like that when you send the rude word will 
   to regis the password must have at least 8 digits, contain number, lowercase, uppercase
 
 ![image](https://github.com/Ethansven/105_project/assets/118910789/57ff1085-754b-4773-af64-7bafedf0614b)
+
+- /logout
+  will clear all the login data
