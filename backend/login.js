@@ -1,8 +1,10 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
+
 export default (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+
   global.connection.query(
     "SELECT * FROM user WHERE username  =?",
     [username],
@@ -21,13 +23,8 @@ export default (req, res) => {
           message: "Username not found",
         });
       } else {
-        const valid = bcrypt.compare(password, rows[0].hashed_password);
+        const valid = await bcrypt.compare(password, rows[0].hashed_password);
         if (valid) {
-          res.json({
-            success: true,
-            message: "Login success",
-            user: rows[0],
-          });
           const token = jwt.sign(
             {
               data: rows[0].id,
@@ -35,10 +32,17 @@ export default (req, res) => {
             "stupidsecret",
             { expiresIn: "1h" }
           );
-          res.cookie("user_id", token);
-        } else {
+          console.log("login token");
+          console.log(token);
+          res.cookie("jwt_token", token);
           res.json({
             success: true,
+            message: "Login success",
+            user: rows[0],
+          });
+        } else {
+          res.json({
+            success: false,
             message: "Wrong password",
           });
         }

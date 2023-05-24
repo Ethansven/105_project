@@ -46,6 +46,7 @@
 .firstPost {
   display: flex;
   width: 768px;
+  justify-content: center;
 }
 .firstImg {
   width: 400px;
@@ -96,13 +97,14 @@
   margin-left: 20px;
   border: hidden;
   color: white;
-  height: 32px;
+  height: 40px;
   width: 85px;
   background-color: #ff9494;
   border-radius: 5px;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
+
 .seemoreButton {
   display: flex;
   align-items: flex-end;

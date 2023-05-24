@@ -33,6 +33,13 @@
 }
 .edit {
   position: absolute;
-  top: 279px;
-  left: 682px;
+  top: 306px;
+  left: 701px;
+  border: none;
+  background-color: inherit;
+}
+.profpic {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
 }

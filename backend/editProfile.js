@@ -1,6 +1,8 @@
+import jwt from "jsonwebtoken";
+
 export default async (req, res) => {
   const profile_url = req.body.profile_url;
-  const id = req.body.id;
+  const id = req.user.id;
   console.log(id);
   console.log(profile_url);
   global.connection.query(

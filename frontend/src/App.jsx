@@ -1,5 +1,4 @@
 import "./App.css";
-import axios from "axios";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Lifestyles from "./pages/Lifestyles";
@@ -9,14 +8,23 @@ import Signup from "./pages/Signup";
 import { useState } from "react";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, Router } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Post from "./pages/Post.jsx";
 import Profile from "./pages/Profile";
-
+import { Button } from "@mui/material";
+import { Create } from "./pages/Create";
+import Axios from "./axiosInstance";
 function App() {
+  const navigate = useNavigate();
+  const logout = async () => {
+    const out = await Axios.get("/logout");
+  };
+  const toprofile = () => {
+    navigate("/profile");
+  };
   const [mode, setmode] = useState(false);
   const changemode = () => {
     setmode(!mode);
@@ -76,7 +84,24 @@ function App() {
                   />
                   <span className="CircleInside">{renderMode()}</span>
                 </label>
-                {/* <AccountCircleIcon fontSize="large" /> */}
+                <Router>
+                  <Button
+                    sx={{ marginLeft: "10px" }}
+                    color="info"
+                    variant="contained"
+                    onClick={() => toprofile()}
+                  >
+                    Profile
+                  </Button>
+                  <Button
+                    sx={{ marginLeft: "10px" }}
+                    color="error"
+                    variant="contained"
+                    onClick={() => logout()}
+                  >
+                    Logout
+                  </Button>
+                </Router>
               </div>
             </div>
           </div>
@@ -106,6 +131,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/post" element={<Post />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/write" element={<Create />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -5,19 +5,34 @@ import "../css/Signup.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Axios from "../axiosInstance";
 export default function Signup() {
   const [user, setUser] = useState();
   const [pass, setPass] = useState();
-  const [secondPass, setSecondPass] = useState();
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (pass === secondPass && user != "" && pass != "" && secondPass != "") {
+  //     navigate("/", { state: { user: user, pass: pass } });
+  //   } else {
+  //     toast.error("Password not match");
+  //   }
+  // };
+  const signup = async (event) => {
     event.preventDefault();
-    if (pass === secondPass && user!='' && pass!=''&&secondPass!='') {
+    const regis = await Axios.post("/regis", {
+      username: user,
+      password: pass,
+    });
+    console.log(regis);
+    if (regis.data.success == true) {
       navigate("/", { state: { user: user, pass: pass } });
     } else {
-      toast.error("Password not match");
+      toast.error(regis.data.message);
     }
   };
+  
+  
   return (
     <div>
       <div className="Head">
@@ -26,7 +41,7 @@ export default function Signup() {
         <p className="Line"></p>
       </div>
       <div className="Signupbox">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={signup}>
           <label className="Abovelog" for="username">
             Username: <br />
             <input
@@ -54,25 +69,12 @@ export default function Signup() {
             />
           </label>
           <br />
-          <label className="Abovelog" for="confirmPassword">
-            Confirm Password:
-            <br />
-            <input
-              className="log"
-              type="password"
-              id="confirmPassword"
-              value={secondPass}
-              required
-              placeholder="Type your password here"
-              onChange={(event) => setSecondPass(event.target.value)}
-            />
-          </label>
-          <br />
+
           <div className="ButtonPosition">
             <button
               className="back"
               onClick={() => {
-                navigate('/');
+                navigate("/");
               }}
             >
               <div className="arrange">

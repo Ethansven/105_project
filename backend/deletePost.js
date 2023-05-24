@@ -1,7 +1,10 @@
 export default (req, res) => {
+  const id = req.body.id;
+  console.log(id);
   global.connection.query(
-    "SELECT post.id, post.header, post.content, post.img_url, post.created_date, post.updated_date, post_category.category FROM post LEFT JOIN post_category ON post.post_category_id = post_category.id ",
-    async (err, rows) => {
+    "DELETE FROM post WHERE id=? ",
+    [id],
+    async (err) => {
       if (err) {
         return res.json({
           success: false,
@@ -11,7 +14,7 @@ export default (req, res) => {
       }
       res.json({
         success: true,
-        data: rows,
+        message: "delete post successful",
         error: null,
       });
     }
