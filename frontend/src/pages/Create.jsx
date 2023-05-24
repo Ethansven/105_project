@@ -4,7 +4,9 @@ import { width } from "@mui/system";
 import MenuItem from "@mui/material/MenuItem";
 import Axios from "../axiosInstance";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 export const Create = () => {
+  const navigate=useNavigate();
   const [header, setheader] = useState();
   const [content, setcontent] = useState();
   const [img, setimg] = useState();
@@ -17,7 +19,9 @@ export const Create = () => {
       category: category,
       user_id:1,
     });
+    navigate("/home");
     console.log(create.data);
+    
   };
 
   const categories = [

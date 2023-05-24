@@ -73,73 +73,72 @@ function App() {
     setCurrent(name);
   };
   return (
-    
-      <div className="App">
-        <ToastContainer />
-        <header className="Header">
-          <div className="Navbar">
-            <div></div>
-            <p className="Logo">Log & Log</p>
-            <div className="actions-container">
-              <div className="mode-container">
-                <label className="OuterButton">
-                  <input
-                    className="InnerButton"
-                    type="checkbox"
-                    defaultChecked={mode}
-                    onClick={() => changemode()}
-                  />
-                  <span className="CircleInside">{renderMode()}</span>
-                </label>
+    <div className="App">
+      <ToastContainer />
+      <header className="Header">
+        <div className="Navbar">
+          <div></div>
+          <p className="Logo">Log & Log</p>
+          <div className="actions-container">
+            <div className="mode-container">
+              <label className="OuterButton">
+                <input
+                  className="InnerButton"
+                  type="checkbox"
+                  defaultChecked={mode}
+                  onClick={() => changemode()}
+                />
+                <span className="CircleInside">{renderMode()}</span>
+              </label>
 
-                <Button
-                  sx={{ marginLeft: "10px" }}
-                  color="info"
-                  variant="contained"
-                  onClick={() => toprofile()}
-                >
-                  Profile
-                </Button>
-                <Button
-                  sx={{ marginLeft: "10px" }}
-                  color="error"
-                  variant="contained"
-                  onClick={() => logout()}
-                >
-                  Logout
-                </Button>
-              </div>
+              <Button
+                sx={{ marginLeft: "10px" }}
+                color="info"
+                variant="contained"
+                onClick={() => toprofile()}
+              >
+                Profile
+              </Button>
+              <Button
+                sx={{ marginLeft: "10px" }}
+                color="error"
+                variant="contained"
+                onClick={() => logout()}
+              >
+                Logout
+              </Button>
             </div>
           </div>
-        </header>
-
-        <div className="Border">
-          <nav className="border">
-            {tab.map((page) => (
-              <NavLink
-                to={page.path}
-                onClick={() => {
-                  setCurrent(page.name);
-                }}
-                className={current === page.name ? "thispage" : "notthispage"}
-              >
-                {page.name}
-              </NavLink>
-            ))}
-          </nav>
         </div>
-        <Routes>
-          <Route path="/" element={<Login changecurrent={changecurrent} />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/lifestyles" element={<Lifestyles />} />
-          <Route path="/foods" element={<Foods />} />
-          <Route path="/others" element={<Others />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/write" element={<Create />} />
-        </Routes>
+      </header>
+
+      <div className="Border">
+        <nav className="border">
+          {tab.map((page) => (
+            <NavLink
+              to={page.path}
+              onClick={() => {
+                setCurrent(page.name);
+              }}
+              className={current === page.name ? "thispage" : "notthispage"}
+            >
+              {page.name}
+            </NavLink>
+          ))}
+        </nav>
       </div>
+      <Routes>
+        <Route path="/" element={<Login changecurrent={changecurrent} />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/lifestyles" element={<Lifestyles />} />
+        <Route path="/foods" element={<Foods />} />
+        <Route path="/others" element={<Others />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/write" element={<Create />} />
+      </Routes>
+    </div>
   );
 }
 
