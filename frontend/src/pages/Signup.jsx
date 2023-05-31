@@ -10,14 +10,7 @@ export default function Signup() {
   const [user, setUser] = useState();
   const [pass, setPass] = useState();
   const navigate = useNavigate();
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (pass === secondPass && user != "" && pass != "" && secondPass != "") {
-  //     navigate("/", { state: { user: user, pass: pass } });
-  //   } else {
-  //     toast.error("Password not match");
-  //   }
-  // };
+  
   const signup = async (event) => {
     event.preventDefault();
     const regis = await Axios.post("/regis", {
@@ -26,7 +19,7 @@ export default function Signup() {
     });
     console.log(regis);
     if (regis.data.success == true) {
-      navigate("/", { state: { user: user, pass: pass } });
+      navigate("/");
     } else {
       toast.error(regis.data.message);
     }
